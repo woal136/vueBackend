@@ -16,7 +16,7 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long id;
 
     private String writer;
     private String title;
@@ -25,8 +25,8 @@ public class Board {
     private LocalDateTime writeDate;
 
     @Builder
-    public Board(Long idx, String writer, String title, String contents, String password, LocalDateTime writeDate) {
-        this.idx = idx;
+    public Board(Long id, String writer, String title, String contents, String password, LocalDateTime writeDate) {
+        this.id = id;
         this.writer = writer;
         this.title = title;
         this.contents = contents;

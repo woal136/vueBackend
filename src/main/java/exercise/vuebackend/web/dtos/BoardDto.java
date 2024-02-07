@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BoardDto implements Serializable {
 
-    private Long idx;
+    private Long id;
     private String writer;
     private String title;
     private String contents;
@@ -20,8 +20,8 @@ public class BoardDto implements Serializable {
     private LocalDateTime writeDate;
 
     @Builder
-    public BoardDto(Long idx, String writer, String title, String contents, String password, LocalDateTime writeDate) {
-        this.idx = idx;
+    public BoardDto(Long id, String writer, String title, String contents, String password, LocalDateTime writeDate) {
+        this.id = id;
         this.writer = writer;
         this.title = title;
         this.contents = contents;

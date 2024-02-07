@@ -25,7 +25,7 @@ public class BoardService {
 
         for (Board board : boards) {
             BoardDto dto = BoardDto.builder()
-                    .idx(board.getIdx())
+                    .id(board.getId())
                     .writer(board.getWriter())
                     .title(board.getTitle())
                     .contents(board.getContents())
@@ -41,7 +41,7 @@ public class BoardService {
     public BoardDto getBoard(Long id) {
         Board board = boardRepository.findById(id).orElseThrow(() -> new RuntimeException("게시글이 없습니다."));
         return BoardDto.builder()
-                .idx(board.getIdx())
+                .id(board.getId())
                 .writer(board.getWriter())
                 .title(board.getTitle())
                 .contents(board.getContents())
@@ -64,7 +64,7 @@ public class BoardService {
     }
 
     public Board updateBoard(BoardDto dto) {
-        Board board = boardRepository.findById(dto.getIdx()).orElseThrow(() -> new RuntimeException("게시글이 없습니다."));
+        Board board = boardRepository.findById(dto.getId()).orElseThrow(() -> new RuntimeException("게시글이 없습니다."));
         board.updateBoard(dto.getTitle(), dto.getContents(), LocalDateTime.now());
 
         // password 일치시 수정 필요
